@@ -35,7 +35,6 @@ public class MSDFAtlasGenerator : EditorWindow
 {
     public Font FontToConvert = null;
 
-    public Texture2D AtlasToSave = null;
     public bool UseTextureCompression = false;
 
     private const string MSDFGenPath = "Assets/Merlin/MSDF/bin/msdfgen.exe";
@@ -62,25 +61,22 @@ public class MSDFAtlasGenerator : EditorWindow
         }
 
         EditorGUI.BeginDisabledGroup(FontToConvert == null);
-        if (GUILayout.Button("Generate Atlas"))
+        string buttonText = "Generate Atlas to PNG";
+        if (File.Exists(GetAssetPath(FontToConvert, true))) {
+            buttonText += " (Will break material references!)";
+            EditorGUILayout.HelpBox("The old MSDF Generator stored textures in unity .asset files. This version saves to .png - After this conversion, you must reset the texture slot in your Font Materials.", MessageType.Warning);
+        }
+        if (GUILayout.Button(buttonText))
         {
             GenerateAtlas(FontToConvert);
         }
         EditorGUI.EndDisabledGroup();
-
-        //AtlasToSave = (Texture2D)EditorGUILayout.ObjectField("Texture to save:", AtlasToSave, typeof(Texture2D), false);
-
-        //if (GUILayout.Button("Save Atlas to PNG"))
-        //{
-        //    SaveToPNG();
-        //}
     }
 
-    private void SaveToPNG()
-    {
-        string assetPath = AssetDatabase.GetAssetPath(AtlasToSave).Replace(".asset", ".png");
-
-        File.WriteAllBytes(assetPath, ImageConversion.EncodeToPNG(AtlasToSave));
+    private string GetAssetPath(Font FontToConvert, bool oldAssetPath=false) {
+        string fontPath = AssetDatabase.GetAssetPath(FontToConvert);
+        string saveFileBase = Path.Combine(Path.GetDirectoryName(fontPath), Path.GetFileNameWithoutExtension(fontPath) + "_msdfAtlas");
+        return saveFileBase + (oldAssetPath ? ".asset" : ".png");
     }
 
     private void GenerateAtlas(Font FontToConvert)
@@ -102,18 +98,25 @@ public class MSDFAtlasGenerator : EditorWindow
         ProcessAtlas(fontTexture, newAtlas, new RectInt(0, 0, fontTexture.width, fontTexture.height));
         newAtlas.Apply(false);
         
-        if (UseTextureCompression)
-        {
-            EditorUtility.DisplayProgressBar("Generating MSDF Atlas...", "Compressing Atlas...", 1f);
-            EditorUtility.CompressTexture(newAtlas, TextureFormat.BC7, TextureCompressionQuality.Best);
-        }
-
         EditorUtility.ClearProgressBar();
 
-        string fontPath = AssetDatabase.GetAssetPath(FontToConvert);
-        string savePath = Path.Combine(Path.GetDirectoryName(fontPath), Path.GetFileNameWithoutExtension(fontPath) + "_msdfAtlas.asset");
-
-        AssetDatabase.CreateAsset(newAtlas, savePath);
+        string oldSavePath = GetAssetPath(FontToConvert, true);
+        string savePath = GetAssetPath(FontToConvert);
+        Texture2D oldAsset = AssetDatabase.LoadAssetAtPath<Texture2D>(oldSavePath);
+        if (oldAsset != null) {
+            // CAUTION: This will break references.
+            AssetDatabase.DeleteAsset(oldSavePath);
+        }
+        File.WriteAllBytes(savePath, ImageConversion.EncodeToPNG(newAtlas));
+        AssetDatabase.Refresh();
+        TextureImporter texImporter = AssetImporter.GetAtPath(savePath) as TextureImporter;
+        texImporter.textureType = TextureImporterType.Default;
+        texImporter.textureShape = TextureImporterShape.Texture2D;
+        texImporter.mipmapEnabled = false;
+        texImporter.textureCompression = UseTextureCompression ? TextureImporterCompression.CompressedHQ : TextureImporterCompression.Uncompressed;
+        texImporter.sRGBTexture = false;
+        texImporter.SaveAndReimport();
+        newAtlas = AssetDatabase.LoadAssetAtPath<Texture2D>(savePath);
 
         EditorGUIUtility.PingObject(newAtlas);
     }
