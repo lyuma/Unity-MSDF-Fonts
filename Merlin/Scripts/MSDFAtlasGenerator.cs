@@ -64,7 +64,7 @@ public class MSDFAtlasGenerator : EditorWindow
         EditorGUI.BeginDisabledGroup(FontToConvert == null);
         if (GUILayout.Button("Generate Atlas"))
         {
-            GenerateAtlas();
+            GenerateAtlas(FontToConvert);
         }
         EditorGUI.EndDisabledGroup();
 
@@ -83,7 +83,7 @@ public class MSDFAtlasGenerator : EditorWindow
         File.WriteAllBytes(assetPath, ImageConversion.EncodeToPNG(AtlasToSave));
     }
 
-    private void GenerateAtlas()
+    private void GenerateAtlas(Font FontToConvert)
     {
         TrueTypeFontImporter fontImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(FontToConvert)) as TrueTypeFontImporter;
 
@@ -97,15 +97,35 @@ public class MSDFAtlasGenerator : EditorWindow
 
         // Hacky method to get the generated font texture so that we can figure out where to put pixels
         Texture2D fontTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(AssetDatabase.GetAssetPath(FontToConvert));
+        Texture2D newAtlas = new Texture2D(fontTexture.width, fontTexture.height, TextureFormat.ARGB32, false, true);
 
+        ProcessAtlas(fontTexture, newAtlas, new RectInt(0, 0, fontTexture.width, fontTexture.height));
+        newAtlas.Apply(false);
+        
+        if (UseTextureCompression)
+        {
+            EditorUtility.DisplayProgressBar("Generating MSDF Atlas...", "Compressing Atlas...", 1f);
+            EditorUtility.CompressTexture(newAtlas, TextureFormat.BC7, TextureCompressionQuality.Best);
+        }
+
+        EditorUtility.ClearProgressBar();
+
+        string fontPath = AssetDatabase.GetAssetPath(FontToConvert);
+        string savePath = Path.Combine(Path.GetDirectoryName(fontPath), Path.GetFileNameWithoutExtension(fontPath) + "_msdfAtlas.asset");
+
+        AssetDatabase.CreateAsset(newAtlas, savePath);
+
+        EditorGUIUtility.PingObject(newAtlas);
+    }
+
+    void ProcessAtlas(Texture2D fontTexture, Texture2D newAtlas, RectInt updateQuad) {
         Dictionary<CharacterInfo, Texture2D> characterGlyphMap = new Dictionary<CharacterInfo, Texture2D>();
 
         CharacterInfo[] characterInfos = FontToConvert.characterInfo;
 
-        Texture2D newAtlas = new Texture2D(fontTexture.width, fontTexture.height, TextureFormat.ARGB32, false, true);
-        for (int x = 0; x < newAtlas.width; ++x)
+        for (int x = 0; x < updateQuad.width; ++x)
         {
-            for (int y = 0; y < newAtlas.height; ++y)
+            for (int y = 0; y < updateQuad.height; ++y)
             {
                 newAtlas.SetPixel(x, y, Color.black);
             }
@@ -150,28 +170,11 @@ public class MSDFAtlasGenerator : EditorWindow
 
                     Color glyphCol = currentGlyphTex.GetPixel(x, y);
 
-                    newAtlas.SetPixel(targetX, targetY, glyphCol);
+                    newAtlas.SetPixel(targetX + updateQuad.xMin, targetY + updateQuad.yMin, glyphCol);
                 }
             }
 
         }
-
-        newAtlas.Apply(false);
-        
-        if (UseTextureCompression)
-        {
-            EditorUtility.DisplayProgressBar("Generating MSDF Atlas...", "Compressing Atlas...", 1f);
-            EditorUtility.CompressTexture(newAtlas, TextureFormat.BC7, TextureCompressionQuality.Best);
-        }
-
-        EditorUtility.ClearProgressBar();
-
-        string fontPath = AssetDatabase.GetAssetPath(FontToConvert);
-        string savePath = Path.Combine(Path.GetDirectoryName(fontPath), Path.GetFileNameWithoutExtension(fontPath) + "_msdfAtlas.asset");
-
-        AssetDatabase.CreateAsset(newAtlas, savePath);
-
-        EditorGUIUtility.PingObject(newAtlas);
     }
 
     private Texture2D GenerateGlyphTexture(int UTFChar, int glyphWidth, int glyphHeight)
