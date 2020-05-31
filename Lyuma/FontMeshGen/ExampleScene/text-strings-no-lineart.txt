@@ -1,0 +1,217 @@
+
+#<parent=BoothTitle>
+<parent=BoothTitle>
+<billboard><center><size=0>.
+<size=3><translate=0,4.5,0>
+<scale=0.003,0.003,0.003>
+<extra=1>
+
+<ZCOOLXiaoWei-Regular><size=3>
+<extra=1><color=#A6FFFC>FontMeshGen   by   Selphina<color=white><extra=0>
+<translate=0,4.1,0><scale=0.003,0.003,0.003><left><size=1>
+</billboard>
+
+<color=#ffeeff>
+<parent=Saracen>
+<shadow=#888800>
+<translate=-0.963,1.71,1.7>
+<x=0><size=6><fatten=2><y=+-100><blur=1><blockimg=0,0,.125,.125><blur=0><y=+100><fatten=1><size=1><x=-200>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+<scale=0.002,0.002,0.002><x=-200><y=-50><z=10>
+<ZCOOLXiaoWei-Regular>
+<z=-10><size=1.5>Risa  <size=1><z=-8><y=+3>by<y=+-3><z=-10><size=1.5>  Saracen<size=1><z=0>
+<NanumGothic-Regular>
+https://saracen.booth.pm
+# <color=#55ddffff><z=30>o<x=+-3><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+ <z=30><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+<NanumGothic-Bold><size=0.7><lineheight=0.7>
+<NanumGothic-ExtraBold>Shader: <NanumGothic-Bold>Standard Subsurface Scattering
+<x=+87>Anisotropic Hair
+<NanumGothic-ExtraBold><size=1>
+</parent>
+
+
+<parent=Silent>
+<shadow=#008888>
+<translate=1.821,1.7,0.86>
+<rotate=0,90,0>
+<x=20><size=6><fatten=3><y=+-80><blur=1><blockimg=0,0,.125,.125><blur=0><y=+80><fatten=1><size=1><x=-200>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+<scale=0.002,0.002,0.002><x=-200>
+<ZCOOLXiaoWei-Regular>
+<z=-10><x=-230><size=1.5>Silent's Cel Shading Shader<size=1><z=0><x=-200>
+<NanumGothic-Regular>
+https://s-ilent.booth.pm
+# <color=#55ddffff><z=30>o<x=+-3><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+ <z=30><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+<NanumGothic-Bold><size=0.7><lineheight=0.7>
+Advanced cel shading for avatars
+
+<NanumGothic-ExtraBold><size=1></parent>
+
+
+
+
+
+<parent=Synergiance>
+<shadow=#008888>
+<translate=0.821,1.65,1.7>
+<x=0><size=6><fatten=2><y=+-100><blur=1><blockimg=0,0,.125,.125><blur=0><y=+100><fatten=1><size=1><x=-200>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+<rotate=0,0,0>
+<scale=0.0015,0.0015,0.0015><x=-200>
+<ZCOOLXiaoWei-Regular>
+<z=-10><size=1.5>LCD Armlet  <size=1><z=-8><y=+3>by<y=+-3><z=-10><size=1.5>  Synergiance<size=1><z=0>
+<NanumGothic-Regular>
+https://synergiance.booth.pm
+# <color=#55ddffff><z=30>o<x=+-3><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+ <z=30><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-150><z=0><y=-10><color=white>
+<NanumGothic-Bold><size=0.7><lineheight=0.7>
+Info and customizable text
+Holographic pixel display
+
+<NanumGothic-ExtraBold><size=1></parent>
+
+
+
+
+
+<parent=Lyuma>
+<distancefade=0.4><translate=0.821,1.05,1.7>
+<rotate=0,0,0>
+<shadow=#008888>
+<x=0><size=6><fatten=2><y=+-100><blur=1><blockimg=0,0,.125,.125><blur=0><y=+100><fatten=1><size=1><x=-200>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+<scale=0.0015,0.0015,0.0015><x=-200>
+<ZCOOLXiaoWei-Regular>
+<z=-10><size=1.5>BoxClip  <size=1><z=-8><y=+3>by<y=+-3><z=-10><size=1.5>  Lyuma<size=1><z=0>
+<doubleside><anglexlate=0,400,-140,0><lineheight=0><size=2.2><color=#bbccaa><img=0,1,0,1><angle=0><lineheight=1><size=1><color=white></doubleside>
+<NanumGothic-Regular>
+https://lyuma.booth.pm
+ <z=30><y=+10><blur=0.75><fatten=17><stretch=1>_<stretch=1><fatten=1><blur=0><x=-150><z=0><y=-10><color=white>
+<NanumGothic-Bold><size=0.7><lineheight=0.7>
+"Impossible space" creation
+ 
+ <shadow=#008888>
+<x=0><size=4><fatten=4><y=+-150><blur=1><blockimg=0,0,.125,.125><blur=0><y=+150><fatten=1><size=1><x=-200>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+ 
+<ZCOOLXiaoWei-Regular><x=-200>
+<lineheight=3.25><z=-10><size=1.5>FontMeshGen  <size=1><z=-8><y=+3>by<y=+-3><z=-10><size=1.5>  Lyuma<size=1><z=0><lineheight=0.75>
+<doubleside><anglexlate=0,400,-140,0><lineheight=0><size=2.2><color=#aaccbb><img=0,1,0,1><angle=0><lineheight=1><size=1><color=white></doubleside>
+<NanumGothic-Regular>
+ <z=30><y=+10><blur=0.75><fatten=17><stretch=1>_<stretch=1><fatten=1><blur=0><x=-150><z=0><y=-10><color=white>
+<NanumGothic-Bold><size=0.7><lineheight=0.7>
+MSDF Text mesh atlasing
+
+<NanumGothic-ExtraBold><size=1></parent>
+
+
+
+
+
+<parent=Xiexe>
+<shadow=#880088>
+<translate=-1.567,1.7,0.7>
+<rotate=0,-90,0>
+<scale=0.002,0.002,0.002>
+<z=70>
+<x=0><size=6><fatten=2><y=+-100><blur=1><blockimg=0,0,.125,.125><blur=0><y=+100><fatten=1><size=1><x=-200>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+<z=70>
+<ZCOOLXiaoWei-Regular>
+<z=+-10><size=1.5>Aiya  <size=1><z=+2><y=+3>by<y=+-3><z=+-2><size=1.5>  Xiexe<size=1><z=+10>
+<NanumGothic-Regular>
+https://xiexe.booth.pm
+ <z=+30><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=+-30><y=-10><color=white>
+<NanumGothic-Bold>
+<size=0.7><lineheight=0.7>
+<NanumGothic-ExtraBold>Shader: <NanumGothic-Bold>XSToon v2.2.2
+<NanumGothic-ExtraBold><size=1>
+<z=0>
+</parent>
+
+<parent=ACChosen>
+<translate=-1.929,1.685,-.986>
+<rotate=0,-90,0>
+<scale=0.002,0.002,0.002>
+<x=0><size=6><fatten=2><y=+-100><blur=1><blockimg=0,0,.125,.125><blur=0><y=+100><fatten=1><size=1>
+
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=-200><color=white><distancefade=1>
+
+<ZCOOLXiaoWei-Regular>
+<z=-10><size=1.5>Eimear  <size=1><z=-8><y=+3>by<y=+-3><z=-10><size=1.5>  AcChosen<size=1><z=0>
+<NanumGothic-Regular>
+https://acchosen-us.booth.pm
+# <color=#55ddffff><z=30>o<x=+-3><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+ <z=30><y=+10><blur=0.75><fatten=20><stretch=1>_<stretch=1><fatten=1><blur=0><x=-200><z=0><y=-10><color=white>
+<NanumGothic-Bold><size=0.7><lineheight=0.7>
+<NanumGothic-ExtraBold>Shader: <NanumGothic-Bold>Silent's Cel Shading
+<NanumGothic-ExtraBold><size=1>
+
+</parent>
+
+
+<parent=Xiexe-SelectQuads>
+<lineheight=0><x=0><y=0><z=30>
+<doubleside>
+<size=3><translate=-1.0796,0.898,0.371>
+<scale=0.002,0.002,0.002>
+<rotate=0,-50.2,0>
+<size=0.9>
+<color=#378086>
+# teal
+<anglexlate=0,-101.3,0,0><blockimg=0,1,0,1>
+<color=#4A619C>
+# vketblue
+<anglexlate=0,0,0,0><blockimg=0,1,0,1>
+<color=#F7824A>
+# red
+<anglexlate=0,101.3,0,0><blockimg=0,1,0,1>
+</doubleside>
+
+<parent=Saracen-QR>
+<size=0.85><translate=-0.569,1.1,1.756>
+<scale=0.002,0.002,0.002>
+<stretch=1><fatten=1><blur=0><thick=0.5><lineheight=1><angle=0><advangle=0></doubleside><shadow=#008800><x=0><color=white>
+<size=2><blockimg=-.015625,.870,.130,1.015625><size=1>
+
+<parent=Lyuma-QR>
+<size=0.7><translate=1.4,0.7,1.634>
+<scale=0.002,0.002,0.002>
+<size=2><blur=0><blockimg=.5,.875,.625,1><blur=0><size=1>
+
+<parent=Synergiance-QR>
+<size=0.7><translate=1.4,1.3,1.634>
+<scale=0.002,0.002,0.002>
+<size=2><blur=0><blockimg=.870,.870,1.015625,1.015625><blur=0><size=1>
+
+<parent=Silent-QR>
+<size=0.7><translate=1.7,1.072,0.342>
+<rotate=0,90,0>
+<scale=0.0025,0.0025,0.0025>
+<size=2><blur=0><blockimg=.15625,-.0625,1.0625,.86><blur=0><size=1>
+
+<parent=Xiexe-QR>
+<size=0.7><translate=-1.47,1.2,0.236>
+<rotate=0,-90,0>
+<scale=0.002,0.002,0.002>
+<size=2><blockimg=.375,.875,.5,1><size=1>
+
+<parent=ACChosen-QR>
+<size=0.7><translate=-1.654,.96,-1.355>
+<rotate=0,-90,0>
+<scale=0.002,0.002,0.002>
+<size=2><blockimg=.25,.875,.375,1><size=1>
